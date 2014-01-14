@@ -16,6 +16,7 @@ class LoginView(base.View):
     def __init__(self, username_text, password_text):
         # Header
         header = generic.banner()
+        #header = generic.pony()
         # Username and password prompts
         max_prompt_length = max(len(username_text), len(password_text))
         max_prompt_padding = max_prompt_length + 2

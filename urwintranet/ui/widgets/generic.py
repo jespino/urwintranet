@@ -29,6 +29,29 @@ def banner():
     btwp = urwid.Padding(bt, "center", width="clip")
     return urwid.AttrWrap(btwp, "green")
 
+def pony():
+    bt = urwid.Text('''
+            .,,.
+         ,;;*;;;;,
+        .-'``;-');;.
+       /'  .-.  /*;;
+     .'    \d    \;;               .;;;,
+    / o      `    \;    ,__.     ,;*;;;*;,
+    \__, _.__,'   \_.-') __)--.;;;;;*;;;;,
+     `""`;;;\       /-')_) __)  `\' ';;;;;;
+        ;*;;;        -') `)_)  |\ |  ;;;;*;
+        ;;;;|        `---`    O | | ;;*;;;
+        *;*;\|                 O  / ;;;;;*
+       ;;;;;/|    .-------\      / ;*;;;;;
+      ;;;*;/ \    |        '.   (`. ;;;*;;;
+      ;;;;;'. ;   |          )   \ | ;;;;;;
+      ,;*;;;;\/   |.        /   /` | ';;;*;
+       ;;;;;;/    |/       /   /__/   ';;;
+       '*jgs/     |       /    |      ;*;
+            `""""`        `""""`     ;'
+''')
+    return urwid.AttrWrap(bt, "green")
+
 
 def button(text, align=None):
     return PlainButton(text.upper(), align)

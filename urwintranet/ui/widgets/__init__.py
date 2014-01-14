@@ -6,4 +6,5 @@ urwintranet.ui.widgets
 """
 
 from . import (generic,
-               auth)
+               auth,
+               home)

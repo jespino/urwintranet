@@ -5,7 +5,7 @@ urwintranet.ui.views.home
 ~~~~~~~~~~~~~~~~~~~~~~~
 """
 
-from urwintranet.ui.widgets import generic
+from urwintranet.ui.widgets import generic, home
 
 from . import base
 
@@ -16,6 +16,8 @@ class HomeView(base.View):
     def __init__(self):
         # Header
         header = generic.pony()
+        home_widget = home.Home([header,])
+        self.widget = generic.center(home_widget)
 
     @property
     def username(self):
