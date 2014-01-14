@@ -1,13 +1,13 @@
-greenmine-ncurses
-=================
+urwintranet
+===========
 
 .. image:: http://kaleidos.net/static/img/badge.png
-    :target: http://kaleidos.net/community/greenmine/
+
 .. image:: https://api.travis-ci.org/kaleidos/greenmine-ncurses.png?branch=master
     :target: https://travis-ci.org/kaleidos/greenmine-ncurses
-.. image:: https://coveralls.io/repos/kaleidos/greenmine-ncurses/badge.png?branch=master
-    :target: https://coveralls.io/r/kaleidos/greenmine-ncurses?branch=master
-.. image:: https://d2weczhvl823v0.cloudfront.net/kaleidos/greenmine-ncurses/trend.png
+.. image:: https://coveralls.io/repos/jespino/urwintranet/badge.png?branch=master
+    :target: https://coveralls.io/r/jespino/urwintranet?branch=master
+.. image:: https://d2weczhvl823v0.cloudfront.net/jespino/urwintranet/trend.png
     :alt: Bitdeli badge
     :target: https://bitdeli.com/free
 
@@ -26,10 +26,10 @@ Just execute these commands in your virtualenv(wrapper):
     $ urwintranet         # to run the app
     
 
-Obviously you need the `greenmine backend`_ and, if you consider yourself a loser,
-you can use the `greenmine web client`_, sometimes. ;-)
+Obviously you need the `intranet backend`_ and, if you consider yourself a loser,
+you can use the `intranet web client`_, sometimes. ;-)
 
-Note: greenmine-ncurses only runs with python 3.3+.
+Note: urwintranet only runs with python 3.3+.
 
-.. _greenmine backend: https://github.com/kaleidos/greenmine-back
-.. _greenmine web client: https://github.com/kaleidos/greenmine-front
+.. _intranet backend: https://github.com/kaleidos/intranet
+.. _intranet web client: https://github.com/kaleidos/intranet/tree/master/clients/antranet
