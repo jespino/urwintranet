@@ -6,4 +6,4 @@ urwintranet.controllers
 """
 
 
-from . import (auth,)
+from . import (auth, home)

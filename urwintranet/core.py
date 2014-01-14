@@ -22,8 +22,8 @@ class IntranetCore(object):
         self.draw = draw
 
         if authenticated:
-            self.state_machine = StateMachine(self, state=StateMachine.PROJECTS)
-            self.controller = self._build_projects_controller()
+            self.state_machine = StateMachine(self, state=StateMachine.HOME)
+            self.controller = self._build_home_controller()
         else:
             self.state_machine = StateMachine(self, state=StateMachine.LOGIN)
             self.controller = self._build_login_controller()
@@ -71,7 +71,7 @@ class IntranetCore(object):
 
     def set_auth_config(self, auth_data):
         self.configuration.config_dict["auth"] = {}
-        self.configuration.config_dict["auth"]["token"] = auth_data["auth_token"]
+        self.configuration.config_dict["auth"]["token"] = auth_data["token"]
 
     def _build_login_controller(self):
         login_view = views.auth.LoginView('username', 'password')
@@ -80,20 +80,12 @@ class IntranetCore(object):
                                                             self.state_machine)
         return login_controller
 
-    def _build_projects_controller(self):
-        projects_view = views.projects.ProjectsView()
-        projects_controller = controllers.projects.ProjectsController(projects_view,
-                                                                      self.executor,
-                                                                      self.state_machine)
-        return projects_controller
-
-    def _build_project_controller(self, project):
-        project_view = views.projects.ProjectDetailView(project)
-        project_controller = controllers.projects.ProjectDetailController(project_view,
-                                                                          self.executor,
-                                                                          self.state_machine)
-        return project_controller
-
+    def _build_home_controller(self):
+        home_view = views.home.HomeView()
+        home_controller = controllers.home.HomeController(home_view,
+                                                          self.executor,
+                                                          self.state_machine)
+        return home_controller
 
 
 class StateMeta(type):
@@ -107,12 +99,12 @@ class StateMeta(type):
 
 class StateMachine(metaclass=StateMeta):
     LOGIN = 0
-    PROJECTS = 1
-    PROJECT_BACKLOG = 2
-    PROJECT_MILESTONES = 3
-    PROJECT_ISSUES = 4
-    PROJECT_WIKI = 5
-    PROJECT_ADMIN = 6
+    HOME = 1
+    PARTS = 2
+    PART = 3
+    HOLIDAYS = 4
+    TALKS = 5
+    PREFERENCES = 6
 
     def __init__(self, core, state):
         self._core = core

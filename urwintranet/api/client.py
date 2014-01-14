@@ -108,7 +108,7 @@ class IntranetClient(BaseClient):
     """
 
     URLS = {
-        "auth": "/api/v1/auth/",
+        "login": "/api/v1/auth/login/",
         "users": "/api/v1/users",
         "user":  "/api/v1/users/{}",
         "projects": "/api/v1/projects",
@@ -135,18 +135,18 @@ class IntranetClient(BaseClient):
         return "Authorization" in self._headers
 
     def set_auth_token(self, auth_token):
-        self._headers["Authorization"] = "Bearer {}".format(auth_token)
+        self._headers["X-SESSION-TOKEN"] = auth_token
 
     def login(self, username, password, params={}):
-        url = urljoin(self._host, self.URLS.get("auth"))
+        url = urljoin(self._host, self.URLS.get("login"))
         data_dict = {
             "username": username,
             "password": password,
         }
         data = self._post(url, data_dict, params)
 
-        if data and "auth_token" in data:
-            self.set_auth_token(data["auth_token"])
+        if data and "token" in data:
+            self.set_auth_token(data["token"])
         return data
 
     def logout(self):
