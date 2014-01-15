@@ -7,4 +7,5 @@ urwintranet.ui.widgets
 
 from . import (generic,
                auth,
-               home)
+               home,
+               parts)

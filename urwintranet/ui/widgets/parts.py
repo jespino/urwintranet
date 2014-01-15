@@ -10,6 +10,9 @@ import urwid
 from . import mixins
 
 
-class Home(urwid.ListBox):
+class Parts(urwid.ListBox):
     def __init__(self, widgets):
         super().__init__(urwid.SimpleListWalker(widgets))
+
+class PartLine(urwid.Text):
+    pass

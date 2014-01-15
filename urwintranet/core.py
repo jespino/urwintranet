@@ -55,8 +55,12 @@ class IntranetCore(object):
     def login_view(self):
         pass
 
-    def projects_view(self):
-        self.controller = self._build_projects_controller()
+    def parts_home(self):
+        self.controller = self._build_home_controller()
+        self.transition()
+
+    def parts_view(self):
+        self.controller = self._build_parts_controller()
         self.transition()
 
     def project_view(self, project):
@@ -87,6 +91,13 @@ class IntranetCore(object):
                                                           self.state_machine)
         return home_controller
 
+    def _build_parts_controller(self):
+        parts_view = views.parts.PartsView()
+        parts_controller = controllers.parts.PartsController(parts_view,
+                                                          self.executor,
+                                                          self.state_machine)
+        return parts_controller
+
 
 class StateMeta(type):
     def __new__(cls, clsname, bases, dct):
@@ -112,10 +123,13 @@ class StateMachine(metaclass=StateMeta):
 
     def logged_in(self, auth_data):
         self._core.set_auth_config(auth_data)
-        self._core.projects_view()
+        self._core.home_view()
 
-    def projects(self):
-        self._core.projects_view()
+    def home(self):
+        self._core.parts_home()
+
+    def parts(self):
+        self._core.parts_view()
 
     def project_detail(self, project):
         self._core.project_view(project)

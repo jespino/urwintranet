@@ -5,4 +5,4 @@ urwintranet.ui.views
 ~~~~~~~~~~~~~~~~~~
 """
 
-from . import (auth, home)
+from . import (auth, home, parts)
