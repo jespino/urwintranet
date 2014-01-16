@@ -65,8 +65,8 @@ def editor(mask=None):
 
 
 class Header(mixins.NonSelectableMixin, urwid.WidgetWrap):
-    def __init__(self):
-        text = urwid.Text("GREENMINE")
+    def __init__(self, tabs):
+        text = urwid.Text("Intranet")
         self.account_button = PlainButton("My account")
         cols = urwid.Columns([
             ("weight", 0.9, text),

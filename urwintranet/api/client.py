@@ -111,7 +111,7 @@ class IntranetClient(BaseClient):
         "login": "/api/v1/auth/login/",
         "users": "/api/v1/users",
         "user":  "/api/v1/users/{}",
-        "projects": "/api/v1/projects",
+        "parts": "/api/v1/parts/",
         "project":  "/api/v1/projects/{}",
         "project-stats": "/api/v1/projects/{}/stats",
         "project-issues-stats": "/api/v1/projects/{}/issues_stats",
@@ -169,8 +169,8 @@ class IntranetClient(BaseClient):
 
     # PROJECT
 
-    def get_projects(self, params={}):
-        url = urljoin(self._host, self.URLS.get("projects"))
+    def get_parts(self, params={}):
+        url = urljoin(self._host, self.URLS.get("parts"))
         return self._get(url, params)
 
     def create_project(self, data_dict={}, params={}):
